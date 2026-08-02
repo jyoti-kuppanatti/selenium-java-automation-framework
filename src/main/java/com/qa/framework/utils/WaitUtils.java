@@ -31,10 +31,6 @@ public class WaitUtils {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public WebElement waitForPresence(By locator) {
-        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-    }
-
     public <T> T until(Function<WebDriver, T> condition) {
         return wait.until(condition);
     }
