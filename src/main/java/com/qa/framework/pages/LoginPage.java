@@ -34,4 +34,8 @@ public class LoginPage extends BasePage {
     public boolean isInvalidCredentialsAlertDisplayed() {
         return waitUtils.waitForVisibility(invalidCredsAlert).isDisplayed();
     }
+
+    public boolean isLoginPageDisplayed() {
+        return waitUtils.waitForVisibility(usernameInput).isDisplayed();
+    }
 }

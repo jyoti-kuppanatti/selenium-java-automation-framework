@@ -34,7 +34,12 @@ public abstract class BaseTest {
         WebDriver driver = DriverFactory.createDriver(browser, headless);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(pageLoadTimeout));
-        driver.manage().window().maximize();
+        if (!headless) {
+            // In headless mode, maximize() has no real screen to size against and can
+            // shrink the viewport below the app's responsive breakpoint (collapsing the
+            // sidebar nav). DriverFactory already sets an explicit window size for headless.
+            driver.manage().window().maximize();
+        }
 
         DriverManager.setDriver(driver);
 

@@ -13,4 +13,16 @@
         </classes>
     </test>
 
+    <test name="PIM Tests">
+        <classes>
+            <class name="com.qa.tests.PimEmployeeListTest"/>
+        </classes>
+    </test>
+
+    <test name="My Info Tests">
+        <classes>
+            <class name="com.qa.tests.MyInfoTest"/>
+        </classes>
+    </test>
+
 </suite>

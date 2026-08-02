@@ -31,4 +31,18 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(loginPage.isInvalidCredentialsAlertDisplayed(), "Invalid credentials alert was not displayed.");
     }
+
+    @Test(description = "Verify a logged-in user can log out and is returned to the login page")
+    public void testLogoutRedirectsToLoginPage() {
+        String username = config.get("valid.username");
+        String password = config.get("valid.password");
+
+        LoginPage loginPage = new LoginPage();
+        DashboardPage dashboardPage = loginPage.login(username, password);
+        Assert.assertTrue(dashboardPage.isDashboardDisplayed(), "Dashboard header was not displayed after login.");
+
+        LoginPage loggedOutPage = dashboardPage.logout();
+
+        Assert.assertTrue(loggedOutPage.isLoginPageDisplayed(), "Login page was not displayed after logout.");
+    }
 }

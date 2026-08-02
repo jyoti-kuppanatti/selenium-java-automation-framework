@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.function.Function;
 
 /**
  * Reusable explicit-wait helpers wrapping WebDriverWait so page objects
@@ -32,5 +33,9 @@ public class WaitUtils {
 
     public WebElement waitForPresence(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
+    public <T> T until(Function<WebDriver, T> condition) {
+        return wait.until(condition);
     }
 }
