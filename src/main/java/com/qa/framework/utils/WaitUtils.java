@@ -15,11 +15,9 @@ import java.util.function.Function;
  */
 public class WaitUtils {
 
-    private final WebDriver driver;
     private final WebDriverWait wait;
 
     public WaitUtils(WebDriver driver, long timeoutSeconds) {
-        this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
     }
 
